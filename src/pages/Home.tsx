@@ -3,6 +3,7 @@ import Time from "@components/time";
 import { useState } from "react";
 import { Container } from "styles/home/style";
 import logo from "@assets/tuk.png";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -11,6 +12,8 @@ const Home = () => {
     start: 0,
     end: 1,
   });
+
+  const navigate = useNavigate();
 
   const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -43,6 +46,16 @@ const Home = () => {
     }));
   };
 
+  const handleCreateEvent = () => {
+    if (!name.trim()) {
+      return alert("계획 이름은 최소 1글자 이상이어야 합니다.");
+    }
+    if (date.length === 0) {
+      return alert("계획은 최소 하루 이상이어야 합니다.");
+    }
+    navigate("/event");
+  };
+
   return (
     <Container>
       <img src={logo} alt="학교 로고" />
@@ -57,7 +70,7 @@ const Home = () => {
       </label>
       <Calendar date={date} onChange={onDateChange} />
       <Time {...time} onChange={onTimeChange} />
-      <button>일정 생성하기</button>
+      <button onClick={handleCreateEvent}>일정 생성하기</button>
     </Container>
   );
 };

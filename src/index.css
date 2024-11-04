@@ -1,4 +1,39 @@
 :root {
+  max-width: 430px;
+  min-height: 100vh;
+
+  margin: 0 auto;
+  background-color: var(--color-blue-secondary);
+  color: #444444;
+
+  /* Main Colors */
+  --color-blue: #0d57a7;
+  --color-blue-secondary: #88abda;
+  --color-skyblue: #008fd3;
+  --color-skyblue-secondary: #6ec3ee;
+  --color-mint: #00b3cd;
+  --color-mint-secondary: #91d2e5;
+
+  /* Sub Colors */
+  --color-green: #abcd03;
+  --color-violet: #9660a3;
+  --color-gray: #666464;
+
+  /* Accent Colors */
+  --color-gold: #d4b571;
+  --color-silver: #a6afb5;
+  --color-black: #000000;
+}
+
+body {
   margin: 0;
   padding: 0;
+  background-color: white;
+  height: 100vh;
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 }
